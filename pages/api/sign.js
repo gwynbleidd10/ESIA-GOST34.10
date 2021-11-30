@@ -12,13 +12,14 @@ export default async (req, res) => {
       console.log('Error', err);
       res.status(500).json({ status: 'error', error: stderr })
     }
-
-    let out = stdout.replace(/[\n\r]/g, '')
-    // url safe base64
-    out = out.replace(/=/g, '')
-    out = out.replace(/\+/g, '-')
-    out = out.replace(/\//g, '_')
-    // out
-    res.status(200).json({ status: 'ok', message: out })
+    else {
+      let out = stdout.replace(/[\n\r]/g, '')
+      // url safe base64
+      out = out.replace(/=/g, '')
+      out = out.replace(/\+/g, '-')
+      out = out.replace(/\//g, '_')
+      // out
+      res.status(200).json({ status: 'ok', message: out })
+    }
   })
 }
