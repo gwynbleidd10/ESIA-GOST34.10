@@ -7,7 +7,7 @@ export default async (req, res) => {
   let fileName = `/tmp/${uuidv4()}`
   console.log(fileName)
 
-  let cmd = `docker run --rm -v $(pwd):$(pwd) -w $(pwd) rnix/openssl-gost openssl smime -sign -binary -outform DER -noattr -signer /keys/cert.pem -inkey /keys/key.pem -out ${fileName}.p7b && cat ${fileName}.p7b | base64`
+  let cmd = `"docker run --rm -v $(pwd):$(pwd) -w $(pwd) rnix/openssl-gost openssl smime -sign -binary -outform DER -noattr -signer /keys/cert.pem -inkey /keys/key.pem -out ${fileName}.p7b && cat ${fileName}.p7b | base64"`
   console.log(cmd)
 
   exec(cmd, (err, stdout, stderr) => {
