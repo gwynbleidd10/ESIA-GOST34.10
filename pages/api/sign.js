@@ -22,14 +22,12 @@ export default async (req, res) => {
           res.status(500).json({ status: 'error', error: stderr })
         }
         else {
-          console.log(stdout)
           let out = stdout.replace(/[\n\r]/g, '')
-          // url safe base64
+
           out = out.replace(/=/g, '')
           out = out.replace(/\+/g, '-')
           out = out.replace(/\//g, '_')
-          // out
-          console.log(out)
+
           res.status(200).json({ status: 'ok', message: out })
         }
       })
