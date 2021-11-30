@@ -6,10 +6,10 @@ export default async (req, res) => {
   // let { message } = req.body
   let message = 'test'
 
-  let fileName = `/tmp/${uuidv4()}`
+  let fileName = `./tmp/${uuidv4()}`
 
   // let cmd = `docker run --rm -v $(pwd):$(pwd) -w $(pwd) rnix/openssl-gost openssl smime -sign -binary -outform DER -noattr -signer /keys/cert.pem -inkey /keys/key.pem -out ${fileName}.p7b && cat ${fileName}.p7b | base64`
-  let cmd = `docker run --rm -v $(pwd):$(pwd) -w $(pwd) rnix/openssl-gost cat "${fileName}""`
+  let cmd = `docker run --rm -v $(pwd):$(pwd) -w $(pwd) rnix/openssl-gost cat ${fileName}`
   console.log(cmd)
 
   fs.writeFile(fileName, message, function (err, data) {
