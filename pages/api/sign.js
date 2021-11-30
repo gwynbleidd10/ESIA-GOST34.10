@@ -8,7 +8,7 @@ export default async (req, res) => {
   console.log(fileName)
 
   // let cmd = `"docker run --rm -v $(pwd):$(pwd) -w $(pwd) rnix/openssl-gost openssl smime -sign -binary -outform DER -noattr -signer /keys/cert.pem -inkey /keys/key.pem -out ${fileName}.p7b && cat ${fileName}.p7b | base64"`
-  let cmd = `docker run --rm -v $(pwd):$(pwd) -w $(pwd) rnix/openssl-gost echo ASD`
+  let cmd = `docker run --rm -v $(pwd):$(pwd) -w $(pwd) rnix/openssl-gost cat ${fileName}`
   console.log(cmd)
 
   exec(cmd, (err, stdout, stderr) => {
