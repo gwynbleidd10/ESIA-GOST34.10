@@ -4,7 +4,7 @@ const fs = require('fs')
 
 export default async (req, res) => {
   // let { message } = req.body
-  let message = 'test'
+  let { message = 'test' } = req.query
 
   let fileName = `/tmp/${uuidv4()}`
 
