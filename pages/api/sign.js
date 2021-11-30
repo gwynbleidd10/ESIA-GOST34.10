@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require('uuid')
 const { exec } = require('child_process')
 const fs = require('fs')
 
-export default async (req, res) => {
+export default (req, res) => {
   // let { message } = req.body
   let { message = 'test' } = req.query
 
