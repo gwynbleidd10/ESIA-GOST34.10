@@ -2,8 +2,10 @@ const { exec } = require('child_process')
 
 export default (req, res) => {
   let { message } = req.body
+
   if (message != undefined && message.length > 0) {
-    let cmd = `echo ${message} | openssl smime -sign -binary -outform DER -noattr -signer /keys/cert.pem -inkey /keys/key.pem | base64`
+    // let cmd = `echo ${message} | openssl smime -sign -binary -outform DER -noattr -signer /keys/cert.pem -inkey /keys/key.pem | base64`
+    let cmd = `echo ${message} | openssl smime -sign -binary -outform DER -noattr -signer /keys/cert.pem -inkey /keys/key.pem -out /tmp/1.p7b && cat /tmp/1.p7b | base64`
     exec(cmd, (err, stdout, stderr) => {
       if (err) {
         console.log('Error: ', err);
