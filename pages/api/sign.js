@@ -16,13 +16,13 @@ export default (req, res) => {
         out = out.replace(/=/g, '')
         out = out.replace(/\+/g, '-')
         out = out.replace(/\//g, '_')
-        res.status(200).json(out)
+        res.status(200).json({ signed: out })
       }
     })
   }
   else {
     res.status(400).json({
-      message: 'Отсутствует поле ["message"]'
+      message: 'Отсутствует обязательное поле "message"'
     })
   }
 }
