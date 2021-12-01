@@ -9,7 +9,7 @@ export default (req, res) => {
   let fileName = `/tmp/${uuidv4()}`
 
   // let cmd = `docker run --rm -v /tmp/:/API/tmp/ -v /keys:/API/keys -w /API rnix/openssl-gost openssl smime -sign -binary -outform DER -noattr -signer ./keys/cert.pem -inkey ./keys/key.pem | base64`
-  let cmd = `docker run --rm -v /tmp/:/API/tmp/ -v /keys:/API/keys -w /API rnix/openssl-gost openssl dgst -md_gost12_256 -sign ./keys/key.pem ./${fileName} | base64`
+  let cmd = `docker run --rm -v /tmp/:/API/tmp/ -v /keys:/API/keys -w /API rnix/openssl-gost openssl dgst -md_gost12_256 -sign ./keys/key.pem .${fileName} | base64`
 
   fs.writeFile(fileName, message, function (err, data) {
     if (err) {
