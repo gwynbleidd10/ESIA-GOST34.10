@@ -2,7 +2,6 @@ version: '3'
 
 services:
   rest-api-for-esia:
-    image: gwynbleidd10/rest-api-for-esia
     volumes:
       - /keys:/API/keys
       - /tmp:/API/tmp
