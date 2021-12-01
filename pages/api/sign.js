@@ -23,6 +23,7 @@ export default (req, res) => {
           res.status(500).json({ status: 'error', error: stderr })
         }
         else {
+          console.log(stdout)
           let out = stdout.replace(/[\n\r]/g, '')
 
           out = out.replace(/=/g, '')
