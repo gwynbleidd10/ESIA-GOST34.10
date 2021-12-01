@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  openssl-gost-rest:
+    image: gwynbleidd10/REST-API-for-ESIA
+    volumes:
+      - /keys:/API/keys
+      - /tmp:/API/tmp
+    ports:
+      - 3000:3000
