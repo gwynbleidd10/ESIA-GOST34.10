@@ -6,7 +6,9 @@ WORKDIR /API
 
 RUN curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n && bash n lts
 
-ADD . /API
+ADD package*.json /API/
+RUN npm install --production
+COPY . /API
 
 RUN npm run build
 
