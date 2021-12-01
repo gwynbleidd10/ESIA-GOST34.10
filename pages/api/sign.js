@@ -3,8 +3,8 @@ const { exec } = require('child_process')
 const fs = require('fs')
 
 export default (req, res) => {
-  // let { message } = req.body
-  let { message = 'test' } = req.query
+  let { message = 'test' } = req.body
+  console.log(message)
 
   let fileName = `/tmp/${uuidv4()}`
 
