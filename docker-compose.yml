@@ -2,7 +2,7 @@ version: '3'
 
 services:
   openssl-gost-rest:
-    image: gwynbleidd10/REST-API-for-ESIA
+    image: gwynbleidd10/rest-api-for-esia
     volumes:
       - /keys:/API/keys
       - /tmp:/API/tmp
