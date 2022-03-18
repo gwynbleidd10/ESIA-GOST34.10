@@ -2,7 +2,7 @@ Rest API for Signing requests for [ESIA](https://esia.gosuslugi.ru/)/
 
 ## Getting Started
 
-First, run the development server:
+First, build and run docker container:
 
 ```bash
 cd "PROJECT FOLDER"
